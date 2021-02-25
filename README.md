@@ -1,4 +1,4 @@
-1. What is the purpose of this project?
+# 1. What is the purpose of this project?
 
 We intend to collect a large dataset of bangla sentences that can be used for
 training useful language models. We intend to make the full dataset publicly
@@ -6,7 +6,7 @@ available, as well as all the codes used for collecting the dataset. We promise
 to make available the full procedure of collecting the dataset so that anyone
 can replicate the process as closely as possible.
 
-2. What do we mean by large?
+# 2. What do we mean by large?
 
 This depends on what the latest standard is. [Bangla Voice
 Command Recognition in end-to-end System Using Topic Modeling based Contextual
@@ -15,14 +15,14 @@ collected 10 million bangla sentences. That is 10,000,000 sentences. As an
 initial figure let us set our goal to 10 times that, in other words 100,000,000
 sentences.
 
-3. How does our goal dataset size compare to what is available for english?
+# 3. How does our goal dataset size compare to what is available for english?
 
 According to [this](https://github.com/openai/gpt-3/blob/master/dataset_statistics/languages_by_word_count.csv)
 GPT-3 was trained on a dataset that had 181014683608 words. Assuming about 18
 words per sentence that is approximately 10,000,000,000 sentences. That is
 1/100th of GPT-3 dataset.
 
-4. Is our goal feasible?
+# 4. Is our goal feasible?
 
 Let us assume we get about 20 sentences per article. That means we would have
 to get about 20 sentences per webpage that we scrap. However among all the
@@ -35,7 +35,7 @@ our goal may not be very feasible. We may need to invest a significant amount
 of time to find good data sources and estimate how much we may actually be able
 to collect.
 
-5. Since our goal doesn't seem feasible what can we do?
+# 5. Since our goal doesn't seem feasible what can we do?
 
 We know we can collect at least 1/10th of our goal since this has already been
 done. That data was collected from 42 websites. We may need to collect from
@@ -44,7 +44,7 @@ from news sites to blogs to literature and even legal material. Unless we have
 gathered such a list of sources and estimated for each source how many
 sentences we can collect from it we should not discourage ourselves.
 
-6. What news websites can we use for our data collection?
+# 6. What news websites can we use for our data collection?
 
 We should focus on high quality newspapers. If sfter we have squeezed
 everything out of them and still have not met our goal, we can look at lower
@@ -52,7 +52,7 @@ quality newspaper. But we must excercise extreme caution. Also newspapers
 representing different political spectrum from Bangladesh and West Bengal
 should be selected.
 
-7. What is a list of good newspaper websties?
+# 7. What is a list of good newspaper websties?
   1. [Prothom Alo](https://www.prothomalo.com/)
   2. [Daily Star](https://www.thedailystar.net/)
   3. [Kaler Kantho](https://www.kalerkantho.com/index.php)
@@ -165,7 +165,7 @@ should be selected.
   112. [Dainik Shiksha](http://www.dainikshiksha.com/)
   113. [Rising BD](https://www.risingbd.com/)
 
-8. What other sources can we use?
+# 8. What other sources can we use?
 
 We expect bangla blogs to be another major source of bangla text. In addition
 rabindra rachanabali, narul rachanabali etc are publicly available. Bangla
@@ -176,13 +176,13 @@ the text. We can gather data from already compiled datasets (fasttext, common-
 crawl). Then we can go to popular facebook profiles that post in bangla and
 extract the text. Finaly we can use illegally available bangla books.
 
-9. How much can we actually collect from these sources?
+# 9. How much can we actually collect from these sources?
 
 We have no good estimate as of now. Each of the sources has to be taken
 individually to estimate how much text can be extracted. If we fall far short
 we may have to look for even extremer sources.
 
-10. Should not we have a list of available bangla blogs?
+# 10. Should not we have a list of available bangla blogs?
 
 Yes. Here is one
   1. [Muktomona](http://mukto-mona.com)
@@ -599,7 +599,7 @@ Yes. Here is one
   411. [Bangla Song Lyrics](https://banglasonglyrics.wordpress.com/)
   412. [Jeebonanondo](https://jeebonanondo.blogspot.com/index.html)
 
-11. What should we use to scrap data from these websites?
+# 11. What should we use to scrap data from these websites?
 
 We want to use best tool available. The best tool seems to be Scrappy.
 It is in python, has a ton of good resources. However it is not the one used
@@ -609,7 +609,7 @@ Given our general dislike of Java and good experience in Python, it seems
 prudent to steer clear of these two technologies in favor of Python based
 Scrappy, even though these are used by highly respected institutions.
 
-12. Should we immediatly proceed to scrap?
+# 12. Should we immediatly proceed to scrap?
 
 It seems more important to establish a process to deal with data cleaning,
 tokenization and representation. This process will be common for all the
@@ -618,14 +618,14 @@ be dealt with first to establish firm base on which this project can be built
 up. In addition this will serve as common focus point that we can come back to,
 when we deal with particular issues.
 
-13. How do we know what the challenges are in data cleaning and tokenization?
+# 13. How do we know what the challenges are in data cleaning and tokenization?
 
 We have to collect a small dataset. We can do this by manually copying from
 websites. We should collect at least 30 documents from diverse sources. Then
 we will look at each text and see what the challenges are. Also we should look
 at papers and other projects to see how others have done it in the past.
 
-14. What insights have you gathered as you manually collect the data?
+# 14. What insights have you gathered as you manually collect the data?
 
   1. Since our goal is to collect a dataset of sentences we should try to
  collect only valid sentences. Thus we should we ignore headers and
