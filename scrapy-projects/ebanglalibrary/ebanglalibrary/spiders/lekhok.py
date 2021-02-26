@@ -12,9 +12,33 @@ class LekhokSpider(scrapy.Spider):
     def parse_author_writings_list(self, response):
         author = response.xpath('//header/h1[@class="page-title"]/text()').get()
         biography = response.xpath('//header/div[@class="taxonomy-description"]/p/text()').get()
-        writings = response.xpath('//div[@class="grid-wrapper"]/ol/li/a/text()').getall()
+        cb_kwargs = {
+                'author': author,
+                'biography': biography,
+                }
+        for writing_link in response.xpath('//div[@class="grid-wrapper"]/ol/li/a'):
+            yield response.follow(writing_link, callback=self.parse_writing, cb_kwargs=cb_kwargs)
+
+    def parse_writing(self, response, author=None, biography=None):
+        title = response.xpath('//div/div[@class="site-content"]/div[@class="content-area"]/main[@class="site-main"]/header[@class="page-header"]/h1[@class="page-title"]/text()').get()
+        description = response.xpath('//header/div[@class="taxonomy-description"]/p/text()').get()
+        cb_kwargs = {
+                'author': author,
+                'biography': biography,
+                'title': title,
+                'description': description,
+                }
+        for section_link in response.xpath('//div[@class="grid-wrapper"]/article/div[@class="entry-inner"]/header[@class="entry-header"]/h2[@class="entry-title"]/a'):
+            yield response.follow(section_link, callback=self.parse_sections, cb_kwargs=cb_kwargs)
+
+    def parse_sections(self, response, author=None, biography=None, title=None, description=None):
+        section_title = response.xpath('//div[@class="content-area"]/main[@class="site-main"]/article/header[@class="entry-header"]/h1[@class="entry-title"]/text()').get()
+        section_content = response.xpath('//div[@class="content-area"]/main[@class="site-main"]/article/div[@class="entry-content"]/p/text()').getall()
         yield {
                 'author': author,
                 'biography': biography,
-                'writings': writings 
+                'title': title,
+                'description': description,
+                'section_title': section_title,
+                'section_content': section_content
                 }
